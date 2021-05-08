@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import Buttons from './components/Buttons';
 import Tasks from './components/Tasks';
+import AddTask from './components/AddTask';
+import Header from './components/Header';
 
 function App() {
   const [tasks, setTasks] = useState([
@@ -49,7 +51,7 @@ function App() {
   return (
     <div className='App'>
       <div className='main-content'>
-        <h1 className='title'>Task Tracker</h1>
+        <Header />
         <div className='task-content'>
           <div className='tasks-box'>
             {tasks.length > 0 ? (
