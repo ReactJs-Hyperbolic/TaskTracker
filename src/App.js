@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import Buttons from './components/Buttons';
 import Tasks from './components/Tasks';
-import AddTask from './components/AddTask';
 import Header from './components/Header';
 
 function App() {
@@ -37,7 +36,7 @@ function App() {
   ]);
 
   const delTask = id => {
-    setTasks(tasks.filter(task => task.id != id));
+    setTasks(tasks.filter(task => task.id !== id));
   };
 
   const toggleReminder = id => {
