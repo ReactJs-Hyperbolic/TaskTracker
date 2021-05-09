@@ -12,7 +12,7 @@ const Task = ({ task, onDelete, onToggle }) => {
         {task.text}{' '}
         <FaTimes className='x-icons' onClick={() => onDelete(task.id)} />
       </p>
-      <p>{task.date}</p>
+      <p>{task.day}</p>
     </div>
   );
 };

@@ -9,48 +9,54 @@ function App() {
       id: 1,
       title: 'task 1',
       text: 'here is text',
-      date: 'Feb 5th @ 1pm',
+      day: 'Feb 5th @ 1pm',
       reminder: false,
     },
     {
       id: 2,
       title: 'task 2',
       text: 'here is text',
-      date: 'Feb 5th @ 1pm',
+      day: 'Feb 5th @ 1pm',
       reminder: true,
     },
     {
       id: 3,
       title: 'task 3',
       text: 'here is text',
-      date: 'Feb 5th @ 1pm',
+      day: 'Feb 5th @ 1pm',
       reminder: false,
     },
     {
       id: 4,
       title: 'task 4',
       text: 'here is text',
-      date: 'Feb 5th @ 1pm',
+      day: 'Feb 5th @ 1pm',
       reminder: false,
     },
   ]);
 
-  const delTask = id => {
-    setTasks(tasks.filter(task => task.id !== id));
+  const delTask = (id) => {
+    setTasks(tasks.filter((task) => task.id !== id));
   };
 
-  const toggleReminder = id => {
+  const toggleReminder = (id) => {
     setTasks(
-      tasks.map(task =>
+      tasks.map((task) =>
         task.id === id ? { ...task, reminder: !task.reminder } : task
       )
     );
   };
 
+  const addTask = (task) => {
+    const id = tasks[tasks.length - 1].id + 1;
+    const newTask = { id, ...task };
+    setTasks([...tasks, newTask]);
+  };
+
   return (
     <div className='App'>
       <div className='main-content'>
-        <Header />
+        <Header tasks={tasks} onAdd={addTask} />
         <div className='task-content'>
           <div className='tasks-box'>
             {tasks.length > 0 ? (
