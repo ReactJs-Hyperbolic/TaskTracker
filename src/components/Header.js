@@ -1,11 +1,11 @@
 import React from 'react';
 import AddTask from './AddTask';
 
-const Header = ({ onAdd, tasks }) => {
+const Header = ({ onAdd, tasks, showAddTask }) => {
   return (
     <div>
       <h1 className='title'>Task Tracker</h1>
-      <AddTask onAdd={onAdd} tasks={tasks} />
+      {showAddTask && <AddTask onAdd={onAdd} tasks={tasks} />}
     </div>
   );
 };

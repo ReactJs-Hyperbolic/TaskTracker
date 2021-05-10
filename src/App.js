@@ -4,6 +4,8 @@ import Tasks from './components/Tasks';
 import Header from './components/Header';
 
 function App() {
+  const [showAddTask, setShowAddTask] = useState(false);
+
   const [tasks, setTasks] = useState([
     {
       id: 1,
@@ -53,10 +55,14 @@ function App() {
     setTasks([...tasks, newTask]);
   };
 
+  const toggleAddTask = () => {
+    setShowAddTask(!showAddTask);
+  };
+
   return (
     <div className='App'>
       <div className='main-content'>
-        <Header tasks={tasks} onAdd={addTask} />
+        <Header tasks={tasks} onAdd={addTask} showAddTask={showAddTask} />
         <div className='task-content'>
           <div className='tasks-box'>
             {tasks.length > 0 ? (
@@ -69,7 +75,11 @@ function App() {
               'No tasks to show'
             )}
           </div>
-          <Buttons btn1='Add' btn2='Delete' />
+          <Buttons
+            btn1={showAddTask ? 'Close' : 'New Task'}
+            toggleAddTask={toggleAddTask}
+            showAddTask={showAddTask}
+          />
         </div>
       </div>
     </div>
